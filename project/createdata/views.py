@@ -12,7 +12,7 @@ def index(request):
     
     
     if (context['pagination']):
-        context['data'] = SimpleData.objects.all().order_by('id')[(context['page'] * 10) : (context['page'] * 10 + 9)]
+        context['data'] = SimpleData.objects.all().order_by('id')[(context['page'] * 10) : (context['page'] * 10 + 10)]
         context['pages'] = int(SimpleData.objects.count() / 10)
     else: context['data'] = SimpleData.objects.all()
 
