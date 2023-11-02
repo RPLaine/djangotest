@@ -28,8 +28,9 @@ Examples:
 <!-- BUILDWITH -->
 ### Built With
 
-* PostgreSQL
-* Django
+* PostgreSQL 16
+* Django 4.2.7
+* Boostrap 5
 
 
 <!-- ROADMAP -->
