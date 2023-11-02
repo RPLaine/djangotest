@@ -16,8 +16,9 @@ Working to understand how to apply CRUD methods in Django.
 1. Django connects to an external PostgreSQL databse.
 2. Local server redirects immediately to "createdata" app.
 3. "Createdata" app allows user to create, edit and delete single-text data from the database.
-4. The webpage autofocuses on the form field.
-5. The application divides database data into pages when there are over 10 items in the database. (unfinished)
+4. Applied Bootstrap 5 outlook.
+5. The webpage autofocuses on the form field.
+6. The application divides database data into pages when there are over 10 items in the database. (unfinished)
 
 Examples:
 <img src="img/screen.png" alt="example1">
