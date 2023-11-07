@@ -10,39 +10,33 @@
                 <div class="col-md-6">
                     <div class="card mt-5">
                         <div class="card-header">
-                            <h3 class="card-header">Kirjaudu sisään</h3>
+                            <h3 class="card-title">Luo uusi tili</h3>
                         </div>
                         <div class="card-body">
-                            {% if form.errors %}
-                            <div class="alert alert-danger" role="alert">
-                                Käyttäjätunnus tai salasana ei kelpaa.
-                            </div>
-                            {% endif %}
-                            <form method="post" action="{% url 'login' %}">
+                            <form method="post" action="{% url 'register' %}">
                                 {% csrf_token %}
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" id="id_username" placeholder="Käyttäjätunnus" required>
-                                    <label for="id_username">Käyttäjätunnus</label>
-                                </div>
+                                    <label for="id_username">Käyttäjätunnus</label> </div>
                                 <div class="form-floating mb-3">
                                     <input type="email" class="form-control" id="id_email" placeholder="nimi@esimerkki.fi" required>
                                     <label for="id_email">Sähköposti</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" id="id_password" placeholder="Salasana" required>
-                                    <label for="id_password">Salasana</label>
+                                    <input type="password" class="form-control" id="id_password1" placeholder="password1" required>
+                                    <label for="id_password1">Salasana</label>
                                 </div>
-                                <div class="mb-3 form-check">
-                                    <input type="checkbox" class="form-check-input" id="id_remember" name="remember">
-                                    <label class="form-check-label" for="id_remember">Muista minut</label>
+                                <div class="form-floating mb-3">
+                                    <input type="password" class="form-control" id="id_password2" placeholder="password2" required>
+                                    <label for="id_password2">Salasana uudelleen</label>
                                 </div>
                                 <div class="d-grid">
-                                    <button type="submit" class="btn btn-primary">Kirjaudu sisään</button>
+                                    <button type="submit" class="btn btn-primary">Luo uusi tili</button>
                                 </div>
                             </form>
                         </div>
                         <div class="card-footer">
-                            <p class="mt-2 text-center">Ei tiliä? <a href="{% url 'registration' %}">Luo uusi tili!</a></p>
+                            <p class="mt-2 text-center">On jo tili? <a href="{% url 'login' %}">Kirjaudu sisään!</a></p>
                         </div>
                     </div>
                 </div>
