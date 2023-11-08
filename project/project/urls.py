@@ -22,6 +22,6 @@ urlpatterns = [
     path('', lambda req: redirect("login/")),
     path('admin/', admin.site.urls),
     path('createdata/', include("createdata.urls")),
-    path('login/', include("login.urls")),
+    path('login/', include(("login.urls", "login"), namespace="login")),
     path('registration/', include(("registration.urls", "registration"), namespace="registration")),
 ]
