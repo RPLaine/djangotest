@@ -13,6 +13,8 @@ def registration(request):
             password1 = request.POST.get('password1')
             password2 = request.POST.get('password2')
 
-            user = User.objects.create_user(username, email, password1)
+            if (User.objects.filter(username=username).exists()):
+                print('Löytyy!')
+            else: print('Ei löydy!')
 
     return render (request, 'registration/registration.html', context)
