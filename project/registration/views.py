@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 
 def registration(request):
@@ -15,5 +15,11 @@ def registration(request):
 
             if (User.objects.filter(username=username).exists() or User.objects.filter(email=email)):
                 context['errorMessage'] = 'Käyttäjätunnus tai sähköpostiosoite on jo olemassa!'
+            else:
+                if (password1 != password2):
+                    context['errorMessage'] = 'Salasanat eivät täsmää!'
+                else:
+                    User.objects.create_user(username, email, password1)
+                    redirect('login:login', username=username, email=email, password=password1)
 
     return render (request, 'registration/registration.html', context)

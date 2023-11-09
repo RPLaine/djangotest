@@ -22,18 +22,19 @@
                             <form method="post" action="{% url 'registration:registration' %}" class="was-validated" autocomplete="off">
                                 {% csrf_token %}
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control is-invalid" name="username" required>
-                                    <label for="username">Käyttäjätunnus</label> </div>
+                                    <input type="text" class="form-control is-invalid" name="username" value="" required>
+                                    <label for="username">Käyttäjätunnus</label>
+                                </div>
                                 <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" name="email" required>
+                                    <input type="email" class="form-control" name="email" value="" required>
                                     <label for="email">Sähköposti</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" name="password1" required>
+                                    <input type="password" class="form-control" name="password1" value="" required>
                                     <label for="password1">Salasana</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" name="password2" required>
+                                    <input type="password" class="form-control" name="password2" value="" required>
                                     <label for="password2">Salasana uudelleen</label>
                                 </div>
                                 <div class="d-grid">
