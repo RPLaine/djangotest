@@ -1,10 +1,10 @@
-from webbrowser import get
 from django.shortcuts import render
 from django.contrib.auth.models import User
 
 def registration(request):
     context = {}
     context['title'] = 'Luo uusi tili'
+    context['errorMessage'] = ''
 
     if request.method == 'POST':
         if 'create' in request.POST:
@@ -13,8 +13,7 @@ def registration(request):
             password1 = request.POST.get('password1')
             password2 = request.POST.get('password2')
 
-            if (User.objects.filter(username=username).exists()):
-                print('Löytyy!')
-            else: print('Ei löydy!')
+            if (User.objects.filter(username=username).exists() or User.objects.filter(email=email)):
+                context['errorMessage'] = 'Käyttäjätunnus tai sähköpostiosoite on jo olemassa!'
 
     return render (request, 'registration/registration.html', context)
