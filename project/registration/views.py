@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 def registration(request):
     context = {}
     context['title'] = 'Luo uusi tili'
-    context['errorMessage'] = ''
+    context['message'] = ''
 
     if request.method == 'POST':
         if 'create' in request.POST:
@@ -14,12 +14,12 @@ def registration(request):
             password2 = request.POST.get('password2')
 
             if (User.objects.filter(username=username).exists() or User.objects.filter(email=email)):
-                context['errorMessage'] = 'Käyttäjätunnus tai sähköpostiosoite on jo olemassa!'
+                context['message'] = 'Käyttäjätunnus tai sähköpostiosoite on jo olemassa!'
             else:
                 if (password1 != password2):
-                    context['errorMessage'] = 'Salasanat eivät täsmää!'
+                    context['message'] = 'Salasanat eivät täsmää!'
                 else:
                     User.objects.create_user(username, email, password1)
-                    redirect('login:login', username=username, email=email, password=password1)
+                    redirect('login:login')
 
     return render (request, 'registration/registration.html', context)

@@ -13,31 +13,28 @@
                             <h3 class="card-title">Kirjaudu sisään</h3>
                         </div>
                         <div class="card-body">
-                            {% if form.errors %}
-                            <div class="alert alert-danger" role="alert">
-                                Käyttäjätunnus tai salasana ei kelpaa.
+                            {% if message %}
+                            <div class="alert alert-danger alert-dismissable fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                             {% endif %}
                             <form method="post" action="{% url 'login:login' %}" class="was-validated">
                                 {% csrf_token %}
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="id_username" value="{{username}}" required>
-                                    <label for="id_username">Käyttäjätunnus</label>
+                                    <input type="text" class="form-control" name="username" value="{{username}}" required>
+                                    <label for="username">Käyttäjätunnus</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="id_email" value="{{email}}" required>
-                                    <label for="id_email">Sähköposti</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" id="id_password" value="{{password}}" required>
+                                    <input type="password" class="form-control" name="password" value="{{password}}" required>
                                     <label for="id_password">Salasana</label>
                                 </div>
                                 <div class="mb-3 form-check">
-                                    <input type="checkbox" class="form-check-input" id="id_remember" name="remember">
-                                    <label class="form-check-label" for="id_remember">Muista minut</label>
+                                    <input type="checkbox" class="form-check-input" name="remember">
+                                    <label class="form-check-label" for="remember">Muista minut</label>
                                 </div>
                                 <div class="d-grid">
-                                    <button type="submit" class="btn btn-primary">Kirjaudu sisään</button>
+                                    <button type="submit" class="btn btn-primary" name="login">Kirjaudu sisään</button>
                                 </div>
                             </form>
                         </div>

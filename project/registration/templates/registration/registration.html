@@ -13,9 +13,9 @@
                             <h3 class="card-title">Luo uusi tili</h3>
                         </div>
                         <div class="card-body">
-                            {% if errorMessage %}
+                            {% if message %}
                             <div class="alert alert-danger alert-dismissable fade show" role="alert">
-                                {{ errorMessage }}
+                                {{ message }}
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                             {% endif %}
