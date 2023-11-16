@@ -6,10 +6,18 @@
     </head>
     <body>
         <div class="container">
-            <div class="mt-3">
-                <h1 class="display-4">{{ title }}</h1>
-            </div>
-            <form method="post" action="{% url 'index' %}">
+            <form method="post" action="{% url 'createdata:createdata' %}">
+            {% csrf_token %}
+                <div>
+                    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#">{{ title }}</a>
+                            <button name="logout-button" class="btn btn-danger">Kirjaudu ulos</button>
+                        </div>
+                    </nav>
+                </div>
+            </form>
+            <form method="post" action="{% url 'createdata:createdata' %}">
             {% csrf_token %}
                 <table class="table table-striped-columns table-hover">
                     <thead>
@@ -29,7 +37,7 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td><button formnovalidate name="new" class="btn btn-success">New</button></td>
+                                <td><button formnovalidate name="new" class="btn btn-success">Uusi</button></td>
                             </tr>
                         {% endif %}
 
@@ -44,8 +52,8 @@
                                         <td>{{ item.date }}</td>
                                         <td>
                                             <div class="btn-group col-12">
-                                                <button formnovalidate name="edit" value="{{ item.id }}" class="btn btn-secondary col-6">Edit</button>
-                                                <button formnovalidate name="delete" value="{{ item.id }}" class="btn btn-danger col-6">Delete</button>
+                                                <button formnovalidate name="edit" value="{{ item.id }}" class="btn btn-secondary col-6">Muokkaa</button>
+                                                <button formnovalidate name="delete" value="{{ item.id }}" class="btn btn-warning col-6">Poista</button>
                                             </div>
                                         </td>
                                     </tr>

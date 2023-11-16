@@ -11,10 +11,10 @@ def index(request):
             username = request.POST.get('username')
             password = request.POST.get('password')
             user = authenticate(request, username=username, password=password)
-            if user is None:
-                context['message'] = 'Väärä käyttäjätunnus tai salasana!'
-            else:
+            if user is not None:
                 login(request, user)
-                redirect('createdata:createdata', user)
+                redirect('createdata:createdata')
+            else:
+                context['message'] = 'Väärä käyttäjätunnus tai salasana!'
 
     return render(request, 'login/login.html', context)
