@@ -38,7 +38,6 @@ def index(request):
             item = SimpleData.objects.get(id=pk)
             form = SimpleDataForm(instance=item)
         elif 'logout-button' in request.POST:
-            print("clicked logout")
             logout(request)
             return redirect('login:login')
 
