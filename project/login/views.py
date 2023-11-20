@@ -13,7 +13,7 @@ def index(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                redirect('createdata:createdata')
+                return redirect('createdata:createdata')
             else:
                 context['message'] = 'Väärä käyttäjätunnus tai salasana!'
 

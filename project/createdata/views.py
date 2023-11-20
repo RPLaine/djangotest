@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .models import SimpleData
 from .forms import SimpleDataForm
 
-@login_required(login_url='/login/')
+@login_required(login_url='login:login')
 def index(request):
     form = SimpleDataForm()
 
