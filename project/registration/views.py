@@ -20,6 +20,6 @@ def registration(request):
                     context['message'] = 'Salasanat eivät täsmää!'
                 else:
                     User.objects.create_user(username, email, password1)
-                    redirect('login:login')
+                    return redirect('login:login')
 
     return render (request, 'registration/registration.html', context)
